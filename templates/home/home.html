@@ -1,0 +1,103 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Clone</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="page-shell">
+        <nav class="top-nav">
+            <div class="nav-row">
+                <div class="brand-wrap">
+                    <div class="logo">amazon</div>
+
+                    <div class="locale">
+                        <span>📍</span>
+                        <div>
+                            <small>Deliver to</small>
+                            <strong>India</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="search-area">
+                    <label for="search-input">ALL</label>
+                    <select id="search-category" name="category">
+                        <option value="all">All</option>
+                        <option value="electronics">Electronics</option>
+                        <option value="books">Books</option>
+                        <option value="fashion">Fashion</option>
+                    </select>
+                    <input type="text" id="search-input" placeholder="Search Amazon.in">
+                    <button class="search-btn" type="button">🔍</button>
+                </div>
+
+                <div class="nav-tools">
+                    <div>
+                        <small>Hello, sign in</small>
+                        <strong>Account Lists</strong>
+                    </div>
+                    <div>
+                        <small>Returns</small>
+                        <strong> Orders</strong>
+                    </div>
+                    <div class="cart-box">
+                        <span>🛒</span>
+                        <strong>Cart</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="subnav">
+                <span><button>☰ All</button></span>
+                <span>Best Sellers</span>
+                <span>Today's Deals</span>
+                <span>Mobiles</span>
+                <span>Customer Service</span>
+                <span>Electronics</span>
+                <span>Books</span>
+                <span>Fashion</span>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <section class="hero-banner" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.3)), url('{{ hero.image }}');">
+                <div class="hero-overlay">
+                    <p>{{ hero.title }}</p>
+                    <button type="button">{{ hero.button }}</button>
+                </div>
+            </section>
+
+            <section class="promo-grid">
+                {% for item in promo_cards %}
+                <article class="promo-card">
+                    <h3>{{ item.title }}</h3>
+                    <img src="{{ item.image }}" alt="{{ item.title }}">
+                    <a href="#">{{ item.link_text }}</a>
+                </article>
+                {% endfor %}
+            </section>
+
+            <section class="products">
+                <div class="section-header">
+                    <h2>{{ product_section_title }}</h2>
+                    <a href="#">See all</a>
+                </div>
+
+                <div class="product-grid">
+                    {% for product in product_cards %}
+                    <article class="product-card">
+                        <img src="{{ product.image }}" alt="{{ product.name }}">
+                        <h3>{{ product.name }}</h3>
+                        <p>{{ product.price }}</p>
+                    </article>
+                    {% endfor %}
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

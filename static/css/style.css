@@ -145,7 +145,16 @@ button, input {
     gap: 18px;
     font-size: 0.85rem;
 }
+.orders{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 1.1rem;
+}
 
+.orders:hover{
+    border: 2px solid white;
+}
 .nav-tools small {
     display: block;
     color: #dfe1e5;
@@ -169,10 +178,8 @@ button, input {
 .cart-box:hover{
     border: 2px solid #e3e6e6;
 }
-.cart-box strong{
-    width: 50px;
-    height: 60px;
-    display: flex;
+.Sign-In:hover{
+    border: 2px solid white;
 }
 .subnav {
     display: flex;

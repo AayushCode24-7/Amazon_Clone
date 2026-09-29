@@ -11,8 +11,7 @@ def home(request):
     promo_cards = [
         {'title': 'New arrivals', 'image': 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80', 'link_text': 'See more'},
         {'title': 'Home essentials', 'image': 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80', 'link_text': 'Shop now'},
-        {'title': 'Smart gadgets', 'image': 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80', 'link_text': 'Explore'},
-        {'title': 'Top picks', 'image': 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=900&q=80', 'link_text': 'Discover'},
+        {'title': 'Smart gadgets', 'image': 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80', 'link_text': 'Explore'}
     ]
 
     product_cards = [

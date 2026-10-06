@@ -9,12 +9,40 @@
 </head>
 <style></style>
 <body>
+    <div id="sidebarOverlay" class="sidebar-overlay" onclick="closeSidebar()"></div>
+    <aside id="amazonSidebar" class="amazon-sidebar">
+        <div class="sidebar-user-header">
+            <h2>👤 Hello, AAYUSH</h2>
+            <button class="sidebar-close-btn" onclick="closeSidebar()"></button>
+        </div>
+        <div class="sidebar-scroll-content">
+            <div class="sidebar-section">
+                <h3>Trending</h3>
+                <a href = "#">Best Sellers</a>
+                <a href = "#">New Releases</a>
+                <a herf = "#">Cart</a>
+                <a herf = "#">Wishlist</a>
+            </div>
+            <hr>
+            <div class="sidebar-section">
+                <h3>Category</h3>
+                <a href="#">Electronics</a>
+                <a href="#">Computers</a>
+                <a href="#">Smart Home</a>
+                <a href="#">Books</a>
+                <a href="#">Stationery</a>
+            </div>
+        </div>
+    </aside>
+
     <div class="page-shell">
         <nav class="top-nav">
             <div class="nav-row">
+                <!-- Brand logo, locale, and tools remain unchanged -->
                 <div class="brand-wrap">
-                    <div class="logo">amazon</div>
-
+                    <div class="logo">
+                        <img src="https://imgs.search.brave.com/1Egurf0O0w7nKyKUdHhhKjbO6kXYerPbO6zSQMpeT4c/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/ZGVzaWduZW5sYXNz/ZW4uZGUvYmxvZy93/cC1jb250ZW50L3Vw/bG9hZHMvMjAyNC8w/Mi9hbWF6b24tbG9n/by0xMDI0eDQzMC5w/bmc">
+                    </div>
                     <div class="locale">
                         <span>📍</span>
                         <div>
@@ -22,8 +50,6 @@
                             <strong>India</strong>
                         </div>
                     </div>
-
-
                 </div>
 
                 <div class="search-area">
@@ -39,15 +65,12 @@
                 </div>
 
                 <div class="nav-tools">                    
-                    <div>
-                        <b>🇮🇳EN</b>
-                    </div>
-                    <div class = "Sign-In">
-                        <small>Hello, sign in</small>
+                    <div><b>🇮🇳EN</b></div>
+                    <div class="Sign-In">
+                        <small>Hello, AAYUSH</small>
                         <strong>Account Lists</strong>
                     </div>
-
-                    <div class = "orders">
+                    <div class="orders">
                         <small>Returns</small>
                         <strong> Orders</strong>
                     </div>
@@ -59,6 +82,8 @@
             </div>
 
             <div class="subnav">
+                <!-- Your exact trigger button targeted here -->
+                <button class="menu-trigger-btn" onclick="myFunction()">☰ All</button>
                 <span>Best Sellers</span>
                 <span>Today's Deals</span>
                 <span>Mobiles</span>
@@ -67,13 +92,6 @@
                 <span>Books</span>
                 <span>Fashion</span>
             </div>
-            <nav class="sidebar">
-                <div class="nav-links">
-                    <a href="#">Home</a>
-                    <a href="#">About</a>
-                    <a href="#">Contact</a>
-                </div>
-            </nav>
         </nav>
 
         <main class="main-content">
@@ -99,7 +117,6 @@
                     <h2>{{ product_section_title }}</h2>
                     <a href="#">See all</a>
                 </div>
-
                 <div class="product-grid">
                     {% for product in product_cards %}
                     <article class="product-card">
@@ -112,5 +129,6 @@
             </section>
         </main>
     </div>
+    <script src="{% static 'js/script.js' %}"></script>
 </body>
 </html>

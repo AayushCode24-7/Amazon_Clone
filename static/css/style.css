@@ -42,23 +42,18 @@ button, input {
     gap: 20px;
 }
 
-.logo {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #f3a847;
-    letter-spacing: -2px;
-    position: relative;
+.logo{
+    height: 40px;
+    width: 100px;
+    /* color: #f3a847; */
+    cursor: pointer;
 }
 
-.logo::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 3px;
-    background: #f3a847;
-    left: 0;
-    bottom: -4px;
-    border-radius: 999px;
+.logo:hover{
+    border: 2px solid white;
+    cursor: pointer;
+    scale: 1.05;
+    transition: all 0.5s ease;
 }
 
 .locale {
@@ -112,7 +107,6 @@ button, input {
     background: #e6e6e6;
     color: #333;
     border: 2px solid #b0a6a6;
-    /* padding: 20px 17px; */
     cursor: pointer;
     font-weight: 600;
     border-right: 1px solid #b0a6a6;
@@ -189,6 +183,13 @@ button, input {
     padding: 10px 20px;
     color: white;
     font-size: 0.95rem;
+}
+.subnav button{
+    background: none;
+    border: none;
+    color: white;
+    font-size: 0.95rem;
+    cursor: pointer;
 }
 .sidebar {
     width: 240px;
@@ -279,9 +280,18 @@ button, input {
 .promo-card img {
     width: 100%;
     height: 200px;
-    object-fit: cover;
+    object-fit: fill;
     border-radius: 5px;
     margin-bottom: 12px;
+}
+.promo-card img:hover{
+    transform: scale(1.05);
+    transition: all 0.8s ease;
+}
+
+.product-card img:hover{
+    transform: scale(1.05);
+    transition: all 0.8s ease;
 }
 
 .promo-card a, .section-header a {
@@ -362,4 +372,127 @@ select:focus{
     .product-grid {
         grid-template-columns: 1fr;
     }
+}
+
+
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8); /* Amazon's signature heavy dim dark */
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.56s ease-in-out;
+}
+
+.sidebar-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Main Sliding Container */
+.amazon-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 360px; /* Standard Amazon desktop drawer width */
+    max-width: 85%;
+    height: 100vh;
+    background-color: #ffffff;
+    z-index: 1000;
+    box-shadow: 4px 0 10px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    /* Hardware acceleration: Offscreen state */
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-out;
+}
+
+.amazon-sidebar.open {
+    transform: translateX(0);
+}
+
+/* User Header Banner Layout */
+.sidebar-user-header {
+    background-color: #232f3e;
+    color: #ffffff;
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+}
+
+.sidebar-user-header span {
+    font-size: 24px;
+}
+
+.sidebar-user-header h2 {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+/* Close Button positioning outside sidebar container boundary */
+.sidebar-close-btn {
+    position: absolute;
+    right: -45px;
+    top: 10px;
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 36px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.sidebar-close-btn:hover {
+    color: #f0c14b;
+}
+
+/* Menu Content Elements Scrolling Wrapper */
+.sidebar-scroll-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px 0;
+}
+
+.sidebar-section {
+    padding: 5px 0;
+}
+
+.sidebar-section h3 {
+    font-size: 14px;
+    color: #111111;
+    padding: 0 30px 10px 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.sidebar-section a {
+    display: block;
+    padding: 12px 30px;
+    color: #444444;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.sidebar-section a:hover {
+    background-color: #eaeded;
+    color: #111111;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #e6e6e6;
+    margin: 15px 0;
+}
+
+/* Global scroll block state toggle for document frame body */
+body.no-scroll {
+    overflow: hidden;
 }
